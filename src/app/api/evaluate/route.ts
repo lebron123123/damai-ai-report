@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { evaluateProduct } from "@/lib/pipeline/evaluate";
+import { saveHistory } from "@/lib/history/store";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,7 +11,16 @@ export async function POST(req: NextRequest) {
     }
     const costPrice = typeof body?.costPrice === "number" && body.costPrice > 0 ? body.costPrice : undefined;
     const report = await evaluateProduct(query, { costPrice });
-    return NextResponse.json(report);
+
+    const historyId = saveHistory({
+      type: "evaluate",
+      query,
+      summary: `${report.decision.verdictLabel} · ${report.product.name}`,
+      score: report.factorReport.compositeScore,
+      payload: report,
+    });
+
+    return NextResponse.json({ ...report, historyId });
   } catch (err) {
     console.error("[api/evaluate] failed:", err);
     const message = err instanceof Error ? err.message : "生成报告失败";

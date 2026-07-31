@@ -27,7 +27,8 @@ Researching products before listing on Mercado Libre Mexico. Currently runs on a
 - Mock data is the default and must stay fully functional standalone; the Mercado Libre adapter is real code, not a stub, but unverified end-to-end (no live credentials yet).
 - No marketplace anywhere publishes a historical sales/price time-series API (verified by hand against Mercado Libre, true industry-wide) — real trend data can only be built by accumulating one snapshot per day per product; a freshly-connected product legitimately starts with 0-1 history points and the factor engine must show that as low confidence, never backfill or fabricate history.
 - Margin rate requires a user-supplied cost price (no marketplace API can know it); falls back to a labeled placeholder otherwise.
-- No auth, no multi-user, no report persistence yet (reports are lost on refresh) — explicitly deferred, not yet decided whether/when to build.
+- No auth, no multi-user — every evaluate/recommend report auto-saves to a shared "我的记录" history (SQLite via node:sqlite), but there's no concept of whose report it is.
+- The history SQLite file lives on local container disk; it does not survive a redeploy on stateless hosts like the current Tencent CloudBase 云托管 target. Swapping in CloudBase's own database is the deferred production fix — see README.
 - Deployment target still undecided; needs to be reachable from within mainland China without a VPN (a prior unrelated project on Vercel was not reachable domestically) — open decision, platform not yet chosen.
 
 ## Brand Commitments

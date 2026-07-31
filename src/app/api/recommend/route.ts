@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { recommendProducts } from "@/lib/pipeline/recommend";
+import { saveHistory } from "@/lib/history/store";
 
 export async function POST(req: NextRequest) {
   try {
@@ -10,7 +11,17 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "请描述你想上架的方向,例如目标品类、预算或市场" }, { status: 400 });
     }
     const report = await recommendProducts(query, category);
-    return NextResponse.json(report);
+
+    const top = report.ranked[0];
+    const historyId = saveHistory({
+      type: "recommend",
+      query,
+      summary: top ? `首选 ${top.product.name}` : "无候选结果",
+      score: top ? top.factorReport.compositeScore : null,
+      payload: report,
+    });
+
+    return NextResponse.json({ ...report, historyId });
   } catch (err) {
     console.error("[api/recommend] failed:", err);
     const message = err instanceof Error ? err.message : "生成推荐失败";
