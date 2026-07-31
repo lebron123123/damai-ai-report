@@ -2,11 +2,13 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Compass, Scale, Radar } from "lucide-react";
+import { Compass, MessageCircle, Radar, Scale } from "lucide-react";
 
-const NAV = [
-  { href: "/recommend", label: "该卖什么", sub: "选品推荐", icon: Compass },
-  { href: "/evaluate", label: "该不该上架", sub: "单品诊断", icon: Scale },
+const PRIMARY = { href: "/chat", label: "AI助手", sub: "对话式引导", icon: MessageCircle };
+
+const SECONDARY = [
+  { href: "/recommend", label: "该卖什么", icon: Compass },
+  { href: "/evaluate", label: "该不该上架", icon: Scale },
 ];
 
 export function Sidebar() {
@@ -26,15 +28,15 @@ export function Sidebar() {
 
       <nav className="mt-2 flex flex-col gap-0.5 px-2 sm:px-3">
         <p className="hidden px-2.5 pb-1.5 pt-3 text-[10px] font-medium uppercase tracking-wider text-sidebar-foreground/60 sm:block">
-          AI功能
+          开始
         </p>
-        {NAV.map(({ href, label, sub, icon: Icon }) => {
-          const active = pathname === href;
+        {(() => {
+          const active = pathname === PRIMARY.href;
+          const Icon = PRIMARY.icon;
           return (
             <Link
-              key={href}
-              href={href}
-              title={label}
+              href={PRIMARY.href}
+              title={PRIMARY.label}
               className={`group flex items-center justify-center gap-2.5 rounded-md px-2.5 py-2.5 text-sm transition-colors sm:justify-start sm:py-2 ${
                 active
                   ? "bg-sidebar-hover text-sidebar-foreground-active"
@@ -43,9 +45,31 @@ export function Sidebar() {
             >
               <Icon size={16} strokeWidth={2} className={`shrink-0 ${active ? "text-accent-on-dark" : "text-sidebar-foreground/70 group-hover:text-accent-on-dark"}`} />
               <span className="hidden flex-col leading-tight sm:flex">
-                <span className="font-medium">{label}</span>
-                <span className="text-[11px] text-sidebar-foreground/60">{sub}</span>
+                <span className="font-medium">{PRIMARY.label}</span>
+                <span className="text-[11px] text-sidebar-foreground/60">{PRIMARY.sub}</span>
               </span>
+            </Link>
+          );
+        })()}
+
+        <p className="hidden px-2.5 pb-1.5 pt-4 text-[10px] font-medium uppercase tracking-wider text-sidebar-foreground/60 sm:block">
+          直接填表
+        </p>
+        {SECONDARY.map(({ href, label, icon: Icon }) => {
+          const active = pathname === href;
+          return (
+            <Link
+              key={href}
+              href={href}
+              title={label}
+              className={`group flex items-center justify-center gap-2.5 rounded-md px-2.5 py-2 text-[13px] transition-colors sm:justify-start ${
+                active
+                  ? "bg-sidebar-hover text-sidebar-foreground-active"
+                  : "text-sidebar-foreground/80 hover:bg-sidebar-hover hover:text-sidebar-foreground-active"
+              }`}
+            >
+              <Icon size={14} strokeWidth={2} className={`shrink-0 ${active ? "text-accent-on-dark" : "text-sidebar-foreground/60 group-hover:text-accent-on-dark"}`} />
+              <span className="hidden sm:inline">{label}</span>
             </Link>
           );
         })}
