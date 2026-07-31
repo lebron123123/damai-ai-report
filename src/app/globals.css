@@ -1,0 +1,117 @@
+@import "tailwindcss";
+
+/*
+  impeccable:direction
+  THESIS: Reject the generic "AI report" template (gradient hero, icon-cards,
+  pastel copy) for a dense operator's cockpit — every number on screen reads
+  as computed, not generated.
+  OWN-WORLD: Permanent near-black sidebar (an operations console, independent
+  of light/dark canvas mode) plus one warm amber accent reserved for primary
+  actions and the composite score; restrained neutral canvas; workhorse Geist
+  sans; real single-stroke icons (lucide); data as tables/bars/charts, never
+  icon-tile cards.
+  STORY: A cross-border seller opens mid-task (find or judge a product), scans
+  the sidebar for one of two entry points, gets a decision-grade report with
+  visible math, not marketing copy.
+  FIRST VIEWPORT: Persistent left sidebar (brand mark, two primary nav
+  entries with icons) beside a main canvas that opens straight on the active
+  task's input row — no hero, no pitch.
+  FORM: Operate-mode SaaS console, pinned by the user's own reference
+  screenshot (damaishuju.com AI报告) — direction pinned by the brief, the
+  concept-seed roll skipped per new-work.md's standing-preference rule; no
+  image-generation tool is available in this environment so the visualize.md
+  sketch step is substituted with this written contract.
+  FINISH: unreviewed and undocumented is unfinished; this build ends with the
+  finish review, the verdict, and DESIGN.md.
+*/
+
+:root {
+  --canvas: #f6f7f9;
+  --card: #ffffff;
+  --border: #e4e7ec;
+  --foreground: #14161a;
+  --muted: #6b7280;
+
+  --sidebar: #12141c;
+  --sidebar-hover: #1c1f2b;
+  --sidebar-foreground: #b8bcc8;
+  --sidebar-foreground-active: #ffffff;
+
+  /* --accent: solid fill for buttons/badges (paired with white text, fixed
+     across themes). --accent-text: the same hue tuned per-theme for text and
+     icons sitting on --accent-tint, which flips light/dark. */
+  --accent: #ad4709;
+  --accent-hover: #963e08;
+  --accent-foreground: #ffffff;
+  --accent-text: #ad4709;
+  --accent-tint: #fdf1e8;
+  /* fixed bright orange for the permanently-dark sidebar; never theme-swapped */
+  --accent-on-dark: #f2934d;
+
+  --positive: #188045;
+  --positive-tint: #ecfbf2;
+  --positive-border: #b8ecc9;
+  --warning: #9c6408;
+  --warning-tint: #fef6e7;
+  --warning-border: #f5dfa5;
+  --negative: #b7333c;
+  --negative-tint: #fdeeee;
+  --negative-border: #f5c6c8;
+}
+
+@theme inline {
+  --color-canvas: var(--canvas);
+  --color-card: var(--card);
+  --color-border: var(--border);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-hover: var(--sidebar-hover);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-foreground-active: var(--sidebar-foreground-active);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent-text: var(--accent-text);
+  --color-accent-tint: var(--accent-tint);
+  --color-accent-on-dark: var(--accent-on-dark);
+  --color-positive: var(--positive);
+  --color-positive-tint: var(--positive-tint);
+  --color-positive-border: var(--positive-border);
+  --color-warning: var(--warning);
+  --color-warning-tint: var(--warning-tint);
+  --color-warning-border: var(--warning-border);
+  --color-negative: var(--negative);
+  --color-negative-tint: var(--negative-tint);
+  --color-negative-border: var(--negative-border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --canvas: #0a0b0d;
+    --card: #16181d;
+    --border: #262931;
+    --foreground: #e9eaed;
+    --muted: #8a8f9a;
+    --accent-text: #f2934d;
+    --accent-tint: #2a1c11;
+    --positive: #3fc274;
+    --positive-tint: #0f2318;
+    --positive-border: #1f4a30;
+    --warning: #e0a83c;
+    --warning-tint: #2a2110;
+    --warning-border: #4d3c14;
+    --negative: #f0666f;
+    --negative-tint: #2a1517;
+    --negative-border: #4d2226;
+  }
+}
+
+body {
+  background: var(--canvas);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}

@@ -1,0 +1,187 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-31T00:00:00Z",
+  "title": "Design System: 大麦AI选品可研报告",
+  "extensions": {
+    "colorMeta": {
+      "amber-ember": {
+        "role": "primary",
+        "displayName": "Amber Ember",
+        "canonical": "#ad4709",
+        "note": "Fixed across light and dark canvas mode. Solid fill only, always paired with white (on-accent) text.",
+        "tonalRamp": ["#2a1103", "#4a1e06", "#6d2c08", "#8f3a09", "#ad4709", "#c96b2f", "#e0956a", "#f5cba8"]
+      },
+      "amber-ember-text": {
+        "role": "primary",
+        "displayName": "Amber Ember Text",
+        "canonical": "#ad4709",
+        "note": "Theme-swapped: light #ad4709, dark #f2934d. For accent text/icons on amber-ember-tint, never as a fill.",
+        "lightValue": "#ad4709",
+        "darkValue": "#f2934d",
+        "tonalRamp": ["#2a1103", "#4a1e06", "#6d2c08", "#8f3a09", "#ad4709", "#c96b2f", "#e0956a", "#f5cba8"]
+      },
+      "amber-ember-on-dark": {
+        "role": "primary",
+        "displayName": "Amber Ember On Dark",
+        "canonical": "#f2934d",
+        "note": "Fixed in both modes. Sidebar-only bright variant for active/hover nav icons against console-black.",
+        "tonalRamp": ["#3a1c04", "#5c2c07", "#834009", "#ab580f", "#c9721f", "#e0956a", "#f2934d", "#f9c69c"]
+      },
+      "console-black": {
+        "role": "neutral",
+        "displayName": "Console Black",
+        "canonical": "#12141c",
+        "note": "Fixed in both modes; the permanently-dark sidebar background.",
+        "tonalRamp": ["#050609", "#0c0e14", "#12141c", "#1c1f2b", "#31374a", "#565d75", "#8891a5", "#c9cdd8"]
+      },
+      "canvas-paper": {
+        "role": "neutral",
+        "displayName": "Canvas Paper",
+        "canonical": "#f6f7f9",
+        "note": "Theme-swapped: light #f6f7f9, dark #0a0b0d. The page background.",
+        "lightValue": "#f6f7f9",
+        "darkValue": "#0a0b0d",
+        "tonalRamp": ["#14161a", "#2b2e34", "#484c54", "#6b7280", "#9299a6", "#c2c6cf", "#e4e7ec", "#f6f7f9"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Ink",
+        "canonical": "#14161a",
+        "note": "Theme-swapped: light #14161a, dark #e9eaed. Primary text.",
+        "lightValue": "#14161a",
+        "darkValue": "#e9eaed",
+        "tonalRamp": ["#14161a", "#2b2e34", "#484c54", "#6b7280", "#9299a6", "#c2c6cf", "#e4e7ec", "#f9fafb"]
+      },
+      "signal-green": {
+        "role": "semantic",
+        "displayName": "Signal Green",
+        "canonical": "#188045",
+        "note": "Theme-swapped: light #188045, dark #3fc274. Positive verdicts, high factor scores.",
+        "lightValue": "#188045",
+        "darkValue": "#3fc274",
+        "tonalRamp": ["#0a2e19", "#0f4526", "#135c33", "#186f3d", "#188045", "#3fc274", "#7de0a3", "#c3f2d4"]
+      },
+      "signal-amber": {
+        "role": "semantic",
+        "displayName": "Signal Amber",
+        "canonical": "#9c6408",
+        "note": "Theme-swapped: light #9c6408, dark #e0a83c. Watch verdicts, mid-range factor scores.",
+        "lightValue": "#9c6408",
+        "darkValue": "#e0a83c",
+        "tonalRamp": ["#2e1d02", "#4a2e04", "#6b4306", "#875207", "#9c6408", "#c98f2e", "#e0a83c", "#f5d896"]
+      },
+      "signal-red": {
+        "role": "semantic",
+        "displayName": "Signal Red",
+        "canonical": "#b7333c",
+        "note": "Theme-swapped: light #b7333c, dark #f0666f. Reject verdicts, anomalies, low factor scores.",
+        "lightValue": "#b7333c",
+        "darkValue": "#f0666f",
+        "tonalRamp": ["#3a0f13", "#571620", "#7a1f2a", "#992833", "#b7333c", "#d65f66", "#e8949a", "#f6cdd0"]
+      }
+    },
+    "typographyMeta": {
+      "title": { "displayName": "Title", "purpose": "Page headers and verdict labels. Only place besides body copy that carries real weight." },
+      "body": { "displayName": "Body", "purpose": "Default paragraph, input, and table-cell text." },
+      "label": { "displayName": "Label", "purpose": "Uppercase, wide-tracked section captions and table column headers." },
+      "mono": { "displayName": "Mono / Data", "purpose": "Exclusively for computed digits: scores, dates, z-scores, percentages, ranks. Scales to 700/18px and 700/26px for the composite score badge." }
+    },
+    "shadows": [],
+    "motion": [],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The only filled button in the system; used for report/recommendation submit actions.",
+      "html": "<button class=\"ds-btn-primary\" type=\"submit\"><svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"11\" cy=\"11\" r=\"8\"/><path d=\"m21 21-4.3-4.3\"/></svg>生成报告</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 6px; background: #ad4709; color: #ffffff; padding: 10px 16px; border-radius: 6px; border: none; font: 500 13.5px 'Geist Sans', Arial, Helvetica, sans-serif; cursor: pointer; transition: background-color 0.15s ease; } .ds-btn-primary:hover { background: #963e08; } .ds-btn-primary:focus-visible { outline: 2px solid #ad4709; outline-offset: 2px; } .ds-btn-primary:disabled { opacity: 0.6; cursor: default; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input-field",
+      "description": "Query and cost-price fields on the recommend/evaluate forms.",
+      "html": "<input class=\"ds-input\" placeholder=\"例如:充电式电钻套装\" />",
+      "css": ".ds-input { background: #ffffff; color: #14161a; border: 1px solid #e4e7ec; border-radius: 6px; padding: 10px 14px; font: 400 13.5px 'Geist Sans', Arial, Helvetica, sans-serif; outline: none; transition: border-color 0.15s ease; } .ds-input::placeholder { color: #6b7280; } .ds-input:focus { border-color: #ad4709; }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Generic report panel: chart container, factor list wrapper, table wrapper.",
+      "html": "<div class=\"ds-card\"><p class=\"ds-card-title\">核心因子分析</p><p class=\"ds-card-body\">销量趋势稳定,竞争密度中等。</p></div>",
+      "css": ".ds-card { background: #ffffff; border: 1px solid #e4e7ec; border-radius: 8px; padding: 16px; } .ds-card-title { font: 600 13px 'Geist Sans', Arial, Helvetica, sans-serif; color: #14161a; margin: 0 0 6px; } .ds-card-body { font: 400 13.5px 'Geist Sans', Arial, Helvetica, sans-serif; color: #6b7280; line-height: 1.6; margin: 0; }"
+    },
+    {
+      "name": "Status Badge",
+      "kind": "chip",
+      "refersTo": "badge-status",
+      "description": "StatusBar connectivity chip (LLM / data-source). Off-state falls back to a plain neutral pill, not a second semantic color.",
+      "html": "<span class=\"ds-badge ds-badge-on\"><span class=\"ds-badge-dot\"></span>大模型:已接入</span>",
+      "css": ".ds-badge { display: inline-flex; align-items: center; gap: 6px; border-radius: 9999px; padding: 4px 10px; font: 500 11px 'Geist Sans', Arial, Helvetica, sans-serif; } .ds-badge-on { background: #ecfbf2; border: 1px solid #b8ecc9; color: #188045; } .ds-badge-dot { width: 6px; height: 6px; border-radius: 9999px; background: currentColor; }"
+    },
+    {
+      "name": "Sidebar Nav Item",
+      "kind": "nav",
+      "refersTo": "nav-item-active",
+      "description": "Active/hover state of the two permanent sidebar entries; icon switches to amber-ember-on-dark, row background to console-black-hover.",
+      "html": "<a class=\"ds-nav-item\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" class=\"ds-nav-icon\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><polygon points=\"16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76\"/></svg><span class=\"ds-nav-text\"><span class=\"ds-nav-label\">该卖什么</span><span class=\"ds-nav-sub\">选品推荐</span></span></a>",
+      "css": ".ds-nav-item { display: flex; align-items: center; gap: 10px; border-radius: 6px; padding: 10px; background: #1c1f2b; color: #ffffff; text-decoration: none; } .ds-nav-item:hover { background: #1c1f2b; } .ds-nav-item:focus-visible { outline: 2px solid #f2934d; outline-offset: 2px; } .ds-nav-icon { color: #f2934d; flex-shrink: 0; } .ds-nav-text { display: flex; flex-direction: column; line-height: 1.2; } .ds-nav-label { font: 500 13px 'Geist Sans', Arial, Helvetica, sans-serif; } .ds-nav-sub { font-size: 11px; color: rgba(255,255,255,0.6); }"
+    },
+    {
+      "name": "Composite Score Badge",
+      "kind": "custom",
+      "refersTo": "composite-score-badge",
+      "description": "The one deliberately loud number in the system: the factor pipeline's final 0-100 score, leading every report view.",
+      "html": "<div class=\"ds-score\"><span class=\"ds-score-num\">78</span><span class=\"ds-score-label\">/100 综合评分</span></div>",
+      "css": ".ds-score { display: flex; align-items: baseline; gap: 6px; } .ds-score-num { font: 700 26px 'Geist Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; color: #ad4709; } .ds-score-label { font-size: 11px; color: #6b7280; }"
+    },
+    {
+      "name": "Factor Score Bar",
+      "kind": "custom",
+      "refersTo": "factor-bar",
+      "description": "One row of FactorBars: label, mono score, semantic-colored fill track, explanation line. Fill color is the same green/amber/red tokens used for verdicts.",
+      "html": "<div class=\"ds-factor\"><div class=\"ds-factor-head\"><span class=\"ds-factor-label\">销量趋势</span><span class=\"ds-factor-score\">72/100</span></div><div class=\"ds-factor-track\"><div class=\"ds-factor-fill\" style=\"width:72%\"></div></div></div>",
+      "css": ".ds-factor-head { display: flex; align-items: baseline; justify-content: space-between; } .ds-factor-label { font: 500 13.5px 'Geist Sans', Arial, Helvetica, sans-serif; color: #14161a; } .ds-factor-score { font: 400 12.5px 'Geist Mono', ui-monospace, monospace; font-variant-numeric: tabular-nums; color: #6b7280; } .ds-factor-track { margin-top: 6px; height: 6px; width: 100%; border-radius: 9999px; background: #e4e7ec; } .ds-factor-fill { height: 6px; border-radius: 9999px; background: #188045; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Trading Terminal",
+    "overview": "This is an instrument panel, not a brochure. The product's own architecture — deterministic factor scores that an LLM is only ever allowed to narrate, a bull/bear debate that has to disagree before a decision agent commits — is a trading-desk mechanism transplanted onto cross-border e-commerce research, and the surface says so before a single word of copy does: a permanently dark console rail (the amber-on-black of a phosphor terminal, not a marketing sidebar), one warm ember accent held in reserve for verdicts and primary actions, and every other pixel spent on tables, bars, and charts instead of on persuasion. The founding thesis, written into globals.css itself, is explicit: reject the generic \"AI report\" template of gradient hero and icon-cards for a page where every number reads as computed, not generated. Density follows from that thesis rather than fighting it. Type sits mostly at 11-13.5px, spacing is tight, and the canvas opens directly on the active task's input row — no hero, no chooser screen, no pitch. The one deliberate visual indulgence is the composite score: set in tabular mono at up to 26px, it is the only number on the page allowed to be loud, because it is the one number the whole pipeline exists to produce.",
+    "keyCharacteristics": [
+      "Operate-mode density: small type, tight spacing, zero hero real estate.",
+      "A permanently dark 'console' rail, independent of the canvas's own light/dark mode.",
+      "One accent color, spent almost entirely on the primary action and the composite score.",
+      "Data rendered as tables, bars, and charts — never as icon-plus-label cards.",
+      "Flat throughout: borders and tint backgrounds carry depth, not shadows."
+    ],
+    "rules": [
+      { "name": "The Console Independence Rule", "body": "The sidebar (console-black, console-black-hover, console-mist, console-white, amber-ember-on-dark) never theme-swaps. It stays near-black regardless of whether the canvas is in light or dark mode, because it represents the operations console, not a themed surface — the one part of the screen that is always \"on.\"", "section": "colors" },
+      { "name": "The Three-Faced Accent Rule", "body": "A single accent hex cannot satisfy both \"solid fill behind white text\" and \"colored text on a themed tint\" across two color schemes at once, so the accent is deliberately split into three tokens: amber-ember (fixed fill, paired with on-accent white text, same value in both modes), amber-ember-text (theme-swapped, for accent-colored text/icons on amber-ember-tint), and amber-ember-on-dark (fixed bright variant, sidebar-only). Collapsing these back into one variable will break contrast in at least one of the three contexts — do not simplify.", "section": "colors" },
+      { "name": "The One Meaning, One Color Rule", "body": "Each semantic color (green/amber/red) means exactly one thing — positive/warning/negative — and is reused identically everywhere that meaning appears: factor-score bar fills, verdict card tint/text/icon, anomaly table text, status chips. There is never a second red for \"error\" and a different red for \"danger\"; if the meaning is the same, the token is the same.", "section": "colors" },
+      { "name": "The Mono-For-Measurement Rule", "body": "font-mono with tabular-nums is used exclusively for real computed digits — factor scores, z-scores, dates, percentages, ranks. It never appears as a decorative \"technical-looking\" treatment on non-numeric text.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Never add box-shadow to a component. If a surface needs to read as distinct or elevated, give it a hairline border and/or a tint background instead.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep the sidebar (console-black family) fixed regardless of canvas theme — it represents the always-on console, not a themed surface.",
+      "Do use amber-ember-text/amber-ember-tint (never amber-ember itself) for accent-colored text sitting on a tinted background; reserve solid amber-ember fills for buttons/badges paired with white text.",
+      "Do render every factor score, verdict, and anomaly through the same semantic color for its meaning (green/amber/red), never a second color for the same meaning in a different component.",
+      "Do use font-mono/tabular-nums for computed digits only — scores, dates, z-scores, percentages, ranks.",
+      "Do carry depth with a hairline border and/or tint background; never add a shadow.",
+      "Do keep every accent-colored icon a single-stroke lucide-react icon, never an emoji or unicode glyph."
+    ],
+    "donts": [
+      "Don't render data as icon-plus-heading-plus-text cards. The founding thesis is tables, bars, and charts; icon-tile cards are the generic \"AI report\" pattern this build explicitly rejected.",
+      "Don't add a kicker or eyebrow label above a heading — section labels (the Label typographic role) sit as their own line, never stacked immediately above an h1/h3 as a category tag.",
+      "Don't introduce a second button variant (ghost/secondary/outline) without evidence it's needed — the system currently has exactly one filled button style and plain rows/links for everything else.",
+      "Don't add a shadow, glow, or ring anywhere; flat surfaces plus borders are the entire depth system.",
+      "Don't make the sidebar collapse into a hamburger/drawer on mobile — it narrows to a 64px icon rail instead, and stays visible at every breakpoint."
+    ]
+  }
+}
